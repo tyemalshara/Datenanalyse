@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+
 studentsList = []
 blueteamId = 0
 # print("Started Reading JSON file which contains multiple JSON document")
@@ -70,6 +71,10 @@ for student in studentsList:
             # print('This is BlueTeam Firstblood: ')
             # print(team['objectives']['champion']['first'],team['teamId'])
             BlueTeamfirstblood = team['objectives']['champion']['first']
+            if BlueTeamfirstblood == False:
+                BlueTeamfirstblood = 0
+            if BlueTeamfirstblood == True:
+                BlueTeamfirstblood = 1
             # mydict['blueFirstBlood'] = BlueTeamfirstblood
             # print('BlueTeam Win: ',team['win'])
             BlueTeamWin = team['win']   # ersetzen mit '0' anstatt 'false/true' blueWins
@@ -86,23 +91,29 @@ for student in studentsList:
             # print('This is RedTeam Firstblood: ')
             # print(team['objectives']['champion']['first'],team['teamId'])
             RedTeamfirstblood = team['objectives']['champion']['first']
+            if RedTeamfirstblood == False:
+                RedTeamfirstblood = 0
+            if RedTeamfirstblood == True:
+                RedTeamfirstblood = 1
             # mydict['redFirstBlood'] = RedTeamfirstblood
             # print('RedTeam Win: ',team['win'])
             RedTeamWin = team['win']
     mydict['gameId'] = gameId
-    mydict['blueAssists'] = BlueTeam_assists
-    mydict['redAssists'] = RedTeam_assists
-    mydict['blueTotalGold'] = BlueTeam_goldEarned
-    mydict['redTotalGold'] = RedTeam_goldEarned
-    mydict['redGoldDiff'] = redGoldDiff
-    mydict['blueGoldDiff'] = blueGoldDiff
-    mydict['blueAvgLevel'] = BlueTeam_AvgLevel
-    mydict['redAvgLevel'] = RedTeam_AvgLevel
-    mydict['blueKills'] = BlueteamKills
-    mydict['blueFirstBlood'] = BlueTeamfirstblood
     mydict['blueWins'] = BlueTeamWin
-    mydict['redKills'] = RedteamKills
+    mydict['blueFirstBlood'] = BlueTeamfirstblood
+    mydict['blueKills'] = BlueteamKills
+    mydict['blueAssists'] = BlueTeam_assists
+    mydict['blueTotalGold'] = BlueTeam_goldEarned
+    mydict['blueAvgLevel'] = BlueTeam_AvgLevel
+    mydict['blueGoldDiff'] = blueGoldDiff
+    
     mydict['redFirstBlood'] = RedTeamfirstblood
+    mydict['redKills'] = RedteamKills
+    mydict['redAssists'] = RedTeam_assists
+    mydict['redTotalGold'] = RedTeam_goldEarned
+    mydict['redAvgLevel'] = RedTeam_AvgLevel    
+    mydict['redGoldDiff'] = redGoldDiff
+    
     data.append(mydict)
 
 # Create a dataframe from the list of dictionaries
