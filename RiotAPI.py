@@ -1,9 +1,9 @@
 import requests 
 import ast
 
-api_key  = 'RGAPI-0ba7d696-6d26-43f4-94ff-3bd4b315db3c'
+api_key  = 'RGAPI-3ffd65f3-9941-4b1c-b2d2-f963fad8771f'
 puuid = 'Hy0nU-qjR3oCqkR3cXma1o-Xk82M0gDQ16D6hknxIY-APLcU33F0ZAWZULTGaCj2UG2PnqMbqX69ag'
-Number_of_match_ids = 20
+Number_of_match_ids = 100
 # match_id = 'EUW1_6215274778'
 
 ListofMatchIds_by_Puuid = f'https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count={Number_of_match_ids}&api_key={api_key}'
@@ -25,7 +25,7 @@ for match_id in ListofMatchIds_by_Puuid:
     # If the request is successful (response code is 200)
     if response.status_code == 200:
         # Open a file for writing in binary mode
-        with open("match_data.json", "ab") as f:
+        with open(f"match_data{Number_of_match_ids}.json", "ab") as f:
             # if anfangsklammer==0:
             #     f.write("[")
             #     anfangsklammer = anfangsklammer+1
