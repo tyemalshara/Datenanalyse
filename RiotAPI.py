@@ -2,7 +2,7 @@ import requests
 import ast
 
 api_key  = 'RGAPI-3ffd65f3-9941-4b1c-b2d2-f963fad8771f'
-puuid = 'Hy0nU-qjR3oCqkR3cXma1o-Xk82M0gDQ16D6hknxIY-APLcU33F0ZAWZULTGaCj2UG2PnqMbqX69ag'
+puuid = 'Hy0nU-qjR3oCqkR3cXma1o-Xk82M0gDQ16D6hknxIY-LAPcU33F0ZAWZULTGaCj2UG2PnqMbqX69ag'
 Number_of_match_ids = 100
 # match_id = 'EUW1_6215274778'
 
